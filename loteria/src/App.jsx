@@ -30,11 +30,11 @@ const LoteriaCard = ({ card, getImageById }) => {
     return (
         // Contenedor principal de la tarjeta, que asegura que sea cuadrada.
         // Usa `relative` y un `div` interno `absolute inset-0` para manejar el padding y el contenido de forma robusta.
-        <div className="relative w-full aspect-square border border-gray-300 rounded-lg bg-white shadow-sm overflow-hidden bg-blue-200"> {/* Added bg-blue-200 for debugging */}
+        <div className="relative w-full  border border-gray-300 rounded-lg bg-white shadow-sm overflow-hidden bg-blue-200"> {/* Added bg-blue-200 for debugging */}
             {/* Contenedor interno para el padding y el contenido (SVG) */}
-            <div className="absolute inset-0 flex items-center justify-center p-1">
+            <div className=" inset-0 flex items-center justify-center p-1 ">
                 {/* Placeholder SVG para simular la imagen */}
-                {getImageById(1)}
+                {getImageById(card.id)}
                 {/* <svg viewBox="0 0 100 100" className="w-full h-full text-gray-500">
                     <rect x="0" y="0" width="100" height="100" fill="#f0f0f0" rx="8" ry="8" />
                     <text x="50" y="50" textAnchor="middle" dominantBaseline="middle" fontSize="18" fill="#555" className="font-semibold">
@@ -57,7 +57,7 @@ const LoteriaBoard = React.forwardRef(({ boardData, getImageById }, ref) => {
         <div
             ref={ref}
             className="loteria-board grid grid-cols-4 gap-1.5 p-2.5 border-2 border-amber-700 rounded-xl bg-amber-50 shadow-lg
-                       w-full max-w-sm aspect-square bg-red-100" // Added bg-red-100 for debugging
+                       w-full max-w-sm bg-red-100" // Added bg-red-100 for debugging
         >
             {boardData.map((card, index) => (
                 <LoteriaCard key={index} card={card} getImageById={getImageById} />
